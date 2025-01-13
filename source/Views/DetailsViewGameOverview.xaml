@@ -77,8 +77,31 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <DockPanel Margin="0,20,0,0" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}" Grid.Row="1">
+                                <DockPanel Margin="0,0,0,0" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}" Grid.Row="1">
+                                    <WrapPanel DockPanel.Dock="Left">
+                                        <Grid Margin="0,0,0,0"
+                                              Tag="{DynamicResource DetailsViewAllowUseOfLogos}" >
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="false">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=true}" Value="false" >
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            <Border Padding="0" Height="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}" MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}" />
+                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" />
+                                        </Grid>
+                                    </WrapPanel>
+                                </DockPanel>
+                                <DockPanel Margin="0,20,0,0" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}" Grid.Row="2">
                                     <!--GridConverterGridPanelCloseButton-->
                                     <WrapPanel DockPanel.Dock="Left">
                                         <Image Name="PART_ImageIcon" MaxHeight="32" MaxWidth="32" DockPanel.Dock="Left" 
@@ -139,7 +162,7 @@
                                     </WrapPanel>
                                 </DockPanel>
 
-                                <DockPanel Grid.Row="2" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}"
+                                <DockPanel Grid.Row="3" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}"
                                            Margin="0,0,0,0">
                                     <DockPanel.Style>
                                         <Style TargetType="DockPanel">
@@ -180,36 +203,17 @@
                                                     Opacity="0.85" />
                                 </DockPanel>
 
-                                <DockPanel Grid.Row="3" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}"
+                                <DockPanel Grid.Row="4" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}"
                                            Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationFlags, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <ContentControl x:Name="CheckLocalizations_PluginFlags" Height="20" Margin="0,8,0,0"
                                                     HorizontalAlignment="Left" 
                                                     Opacity="0.85" />
                                 </DockPanel>
                                 
-                                <DockPanel MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}" Grid.Row="4" >
+                                <DockPanel MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}" Grid.Row="5" >
                                     <StackPanel DockPanel.Dock="Right" Width="{DynamicResource DetailsViewDetailsColumnWidth}" Margin="20,0,0,0">
 
                                         <!--#region Logo & Cover Image-->
-                                        <Grid Margin="-1740,-925,0,-500"
-                                              Tag="{DynamicResource DetailsViewAllowUseOfLogos}" >
-                                            <Grid.Style>
-                                                <Style TargetType="Grid">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="false">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=true}" Value="false" >
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Grid.Style>
-                                            <Border Padding="0" Height="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}" MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}" />
-                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" />
-                                        </Grid>
-
                                         <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,-500,0,0">
                                             <Border Grid.Row="1" Background="Transparent"
                                                         Visibility="{Binding ElementName=CoverGridContainer, Path=Visibility}"
