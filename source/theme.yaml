@@ -1,14 +1,8 @@
 ThemeApiVersion: 2.5.0
-Id: Mythic_e231056c-4fa7-49d8-ad2b-0a6f1c589eb8
-Name: Mythic
-Author: darklinkpower
-Version: 1.58
+Id: Mythic_SlyAceZeta
+Name: Mythic (Fork)
+Author: darklinkpower & SlyAceZeta
+Version: 1.58-fork
 Links:
 - Name: GitHub
-  Url: https://github.com/darklinkpower/Mythic
-- Name: Issues Tracker
-  Url: https://github.com/darklinkpower/Mythic/issues
-- Name: Support (Discord)
-  Url: https://discord.com/channels/365863063296933888/808419347105447957
-- Name: Ko-fi (Tips and Donations)
-  Url: https://ko-fi.com/darklinkpower
+  Url: https://github.com/SlyAceZeta/Mythic
