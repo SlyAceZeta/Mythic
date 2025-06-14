@@ -1,8 +1,8 @@
-ThemeApiVersion: 2.5.0
+ThemeApiVersion: 2.8.0
 Id: Mythic_SlyAceZeta
 Name: Mythic (Fork)
 Author: darklinkpower & SlyAceZeta
-Version: 1.58-fork
+Version: 1.60-fork
 Links:
 - Name: GitHub
   Url: https://github.com/SlyAceZeta/Mythic
